@@ -10,37 +10,35 @@ namespace CharacterGen
     {
         static void Main(string[] args)
         {
-            //Create new character
-            Character Char1 = new Character();
+            //Instantiate new character
+            Character PlayerCharacter = new Character();
 
             //Create character stats array
-            double[] Char1Stats = new double[6];
+            double[] PlayerCharacterStats = new double[6];
 
             Console.WriteLine("Please entera character name");
             String CharacterName = Console.ReadLine();
 
             Console.WriteLine("Strength:");
-            Char1Stats[0] = double.Parse(Console.ReadLine());
+            PlayerCharacterStats[0] = double.Parse(Console.ReadLine());
 
             Console.WriteLine("Dexterity:");
-            Char1Stats[1] = double.Parse(Console.ReadLine());
+            PlayerCharacterStats[1] = double.Parse(Console.ReadLine());
 
             Console.WriteLine("Constitution:");
-            Char1Stats[2] = double.Parse(Console.ReadLine());
+            PlayerCharacterStats[2] = double.Parse(Console.ReadLine());
 
             Console.WriteLine("Intelligence:");
-            Char1Stats[3] = double.Parse(Console.ReadLine());
+            PlayerCharacterStats[3] = double.Parse(Console.ReadLine());
 
             Console.WriteLine("Wisdom:");
-            Char1Stats[4] = double.Parse(Console.ReadLine());
+            PlayerCharacterStats[4] = double.Parse(Console.ReadLine());
 
             Console.WriteLine("Charisma:");
-            Char1Stats[5] = double.Parse(Console.ReadLine());
+            PlayerCharacterStats[5] = double.Parse(Console.ReadLine());
 
             //Pass character stats array to Character class for storage
-            Char1.UpdateStats(Char1Stats);
-
-            Console.WriteLine(Char1.StrMod);
+            PlayerCharacter.UpdateStats(PlayerCharacterStats);
         }
     }
 }

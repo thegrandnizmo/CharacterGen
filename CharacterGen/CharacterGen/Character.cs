@@ -10,49 +10,85 @@ namespace CharacterGen
     {
         private double[] _stats;
 
-        private double _str;
-        private double _dex;
-        private double _con;
-        private double _int;
-        private double _wis;
-        private double _cha;
+        private double _strength;
+        private double _dexterity;
+        private double _constitution;
+        private double _intelligence;
+        private double _wisdom;
+        private double _charisma;
 
-        //List used to be converted to array
-        private List<double> mods;
+        //List to be converted to array
+        private List<double> AbilityModifiers;
 
-        //Converted from mods list
-        private double[] _mods;
+        //Converted from AbilityModifiers list
+        private double[] _abilityModifiers;
 
         public void UpdateStats(double[] stats)
         {
             _stats = stats;
-            _str = stats[0];
-            _dex = stats[1];
-            _con = stats[2];
-            _int = stats[3];
-            _wis = stats[4];
-            _cha = stats[5];
-            _mods = new double[6];
-            mods = new List<double>();
+            _strength = stats[0];
+            _dexterity = stats[1];
+            _constitution = stats[2];
+            _intelligence = stats[3];
+            _wisdom = stats[4];
+            _charisma = stats[5];
+            _abilityModifiers = new double[6];
+            AbilityModifiers = new List<double>();
 
             //Calculates ability modifiers
             foreach (double item in stats)
             {
-                mods.Add(Math.Floor((item - 10) / 2));
+                AbilityModifiers.Add(Math.Floor((item - 10) / 2));
             }
             //Converts list to array
-            _mods = mods.ToArray();
+            _abilityModifiers = AbilityModifiers.ToArray();
         }
 
-        public double StrMod
+        public void UpdateSkills(double AbilityModifier)
+        {
+
+        }
+
+        public double StrengthModifier
         {
             get
             {
-                return _mods[0];
+                return _abilityModifiers[0];
             }
-            set
+        }
+        public double DexterityModifier
+        {
+            get
             {
-
+                return _abilityModifiers[1];
+            }
+        }
+        public double ConstitutionModifier
+        {
+            get
+            {
+                return _abilityModifiers[2];
+            }
+        }
+        public double IntelligenceModifier
+        {
+            get
+            {
+                return _abilityModifiers[3];
+            }
+        }
+        public double WisdomModifier
+        {
+            get
+            {
+                return _abilityModifiers[4];
+            }
+        }
+        public double CharismaModifier
+        {
+            get
+            {
+                return _abilityModifiers[5];
             }
         }
     }
