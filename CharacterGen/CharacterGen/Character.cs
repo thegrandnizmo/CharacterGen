@@ -8,20 +8,16 @@ namespace CharacterGen
 {
     public class Character
     {
-        private double[] _stats;
+        private double[] _stats; //Holds character stats
 
-        private double _strength;
-        private double _dexterity;
-        private double _constitution;
-        private double _intelligence;
+        private double _strength;           //Holds individual stats pulled from _stats array.
+        private double _dexterity;          //Not necessary, but makes code more readable.
+        private double _constitution;       //I.E. _strength is easier to identify at a glance
+        private double _intelligence;       //than _stats[0]
         private double _wisdom;
         private double _charisma;
 
-        //List to be converted to array
-        private List<double> AbilityModifiers;
-
-        //Converted from AbilityModifiers list
-        private double[] _abilityModifiers;
+        private List<double> _abilityModifiers; //List contains ability modifiers. Converts to array
 
         public void UpdateStats(double[] stats)
         {
@@ -32,64 +28,20 @@ namespace CharacterGen
             _intelligence = stats[3];
             _wisdom = stats[4];
             _charisma = stats[5];
-            _abilityModifiers = new double[6];
-            AbilityModifiers = new List<double>();
 
-            //Calculates ability modifiers
+            _abilityModifiers = new List<double>();
+
             foreach (double item in stats)
             {
-                AbilityModifiers.Add(Math.Floor((item - 10) / 2));
+                _abilityModifiers.Add(Math.Floor((item - 10) / 2)); //Calculates ability modifiers
             }
-            //Converts list to array
-            _abilityModifiers = AbilityModifiers.ToArray();
         }
 
-        public void UpdateSkills(double AbilityModifier)
-        {
-
-        }
-
-        public double StrengthModifier
-        {
-            get
-            {
-                return _abilityModifiers[0];
-            }
-        }
-        public double DexterityModifier
-        {
-            get
-            {
-                return _abilityModifiers[1];
-            }
-        }
-        public double ConstitutionModifier
-        {
-            get
-            {
-                return _abilityModifiers[2];
-            }
-        }
-        public double IntelligenceModifier
-        {
-            get
-            {
-                return _abilityModifiers[3];
-            }
-        }
-        public double WisdomModifier
-        {
-            get
-            {
-                return _abilityModifiers[4];
-            }
-        }
-        public double CharismaModifier
-        {
-            get
-            {
-                return _abilityModifiers[5];
-            }
-        }
+        public double StrengthModifier { get { return _abilityModifiers[0]; } }
+        public double DexterityModifier { get { return _abilityModifiers[1]; } }
+        public double ConstitutionModifier { get { return _abilityModifiers[2]; } }
+        public double IntelligenceModifier { get { return _abilityModifiers[3]; } }
+        public double WisdomModifier { get { return _abilityModifiers[4]; } }
+        public double CharismaModifier { get { return _abilityModifiers[5]; } }
     }
 }

@@ -10,11 +10,9 @@ namespace CharacterGen
     {
         static void Main(string[] args)
         {
-            //Instantiate new character
-            Character PlayerCharacter = new Character();
-
-            //Create character stats array
-            double[] PlayerCharacterStats = new double[6];
+            Character PlayerCharacter = new Character(); //Instantiate new character
+            
+            double[] PlayerCharacterStats = new double[6]; //Create character stats array
 
             Console.WriteLine("Please entera character name");
             String CharacterName = Console.ReadLine();
