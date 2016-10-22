@@ -10,7 +10,7 @@ namespace CharacterGen.Tests
         public void AbilityModifiersCalculateCorrectly()
         {
             Character TestCharacter = new Character();
-            double[] TestCharacterStats = new double[6];
+            int[] TestCharacterStats = new int[6];
 
             //Strength
             TestCharacterStats[0] = 8;
